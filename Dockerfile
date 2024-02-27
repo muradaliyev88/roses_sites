@@ -8,6 +8,5 @@ COPY . /myprojects/
 RUN pip install --upgrade pip
 RUN pip install virtualenv
 RUN virtualenv alienv --python=python3
-RUN apt-get install gdal-bin libgdal-dev -y
-RUN /bin/bash -c "source /myprojects/alienv/bin/activate && pip install -r requirements.txt"
+RUN /bin/bash -c "source /myprojects/alienv/bin/activate && pip install django==4.2"
 COPY . .

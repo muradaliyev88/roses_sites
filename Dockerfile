@@ -9,5 +9,5 @@ RUN pip install --upgrade pip
 RUN pip install virtualenv
 RUN virtualenv alienv --python=python3
 RUN apt-get install gdal-bin libgdal-dev -y
-RUN /bin/bash -c "source /myprojects/alienv/bin/activate && pip install -r requirements.txt pip install torch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2"
+RUN /bin/bash -c "source /myprojects/alienv/bin/activate && pip install -r requirements.txt"
 COPY . .

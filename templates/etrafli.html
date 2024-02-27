@@ -1,0 +1,238 @@
+{% extends 'header.html' %}
+{% block body %}
+      {% load static %}
+
+    <div id="breadcrumb" class="clearfix">
+        <div class="container">
+            <div class="breadcrumb clearfix">
+                <ul class="ul-breadcrumb">
+                    <li><a href="{% url 'polls:home' %}" title="Ana səhifə">Ana səhifə</a></li>
+                    <li><span>Ətraflı</span></li>
+                </ul>
+                <h2 class="bread-title">Ətraflı</h2>
+            </div>
+        </div>
+    </div><!-- end breadcrumb -->
+
+    <div id="columns" class="columns-container">
+        <!-- container -->
+        <div class="container">
+            <div class="row">
+                <div id="center_column" class="col-lg-9 col-md-9">
+                    <div class="blog-posts clearfix">
+                        <h1 class="title_block">Ətraflı</h1>
+                        <div class="row">
+                        @foreach ($post as $posts)
+                           
+                        @endforeach
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="post post-large">
+                                    <div class="post-image">
+                                        <a href="'blogumuz/'.$posts->id ">
+                                            <img src=" posts->posts_img_link " alt="" class="img-responsive">
+                                        </a>
+                                        <div class="post-meta">
+                                            <div class="post-meta-lr">
+														<span class="post-author">
+															<i class="zmdi zmdi-account"></i>
+															By <a href="#">Murad</a>
+														</span>
+                                                <span class="post-date"><i class="zmdi zmdi-calendar"></i> posts->created_at</span>
+                                                <span class="comment"><i class="zmdi zmdi-comment-outline"></i> 10</span>
+                                                <span class="favorite"><i class="zmdi zmdi-favorite-outline"></i> 20</span>
+                                            </div><!-- end post-meta-left -->
+                                        </div><!-- end post-meta -->
+                                    </div>
+                                    <div class="post-content">
+                                        <h4 class="title_block"><a href="'blogumuz/'.$posts->id " title="Nullam ullamcorper nisl quis ornare molestie">posts->title</a></h4>
+                                        @php
+                                      body = posts->body;
+                                      sub = substr(body, 0,350);
+                                    @endphp
+                                        <div class="des">sub....</div>
+                                        <a class="btn-readmore" href="'blogumuz/'.posts->id" title="Read more">Ardını oxu <i class="zmdi zmdi-chevron-right"></i></a>
+                                    </div>
+                                </div><!-- end post -->
+                            </div>
+                        @foreach (post as element)
+                            
+                        
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 col-sp-12">
+                                <div class="post post-medium">
+                                    <div class="post-image">
+                                        <a href="'blogumuz/'.$element->id">
+                                            <img src="element->posts_img_link " alt="" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    @php
+                                      $body = $element->body;
+                                      $sub = substr($body, 0,141);
+                                    @endphp
+                                    <div class="post-content">
+                                        <h4 class="title_block"><a href="'blogumuz/'.$element->id" title="element->title">element->title</a></h4>
+                                        <div class="des">sub...</div>
+                                        <a class="btn-readmore" href="'blogumuz/'.$element->id " title="Ardını oxu">Ardını oxu <i class="zmdi zmdi-chevron-right"></i></a>
+                                    </div>
+                                </div><!-- end post -->
+                            </div>
+                            @endforeach
+                                                
+                        </div><!-- end row -->
+                        <div class="content_sortPagiBar bottom clearfix">
+                            <nav>
+                                <ul class="pagination">
+                                    <li>
+                                        <a href="#" aria-label="Previous">
+                                            <span aria-hidden="true"><i class="fa fa-angle-left"></i></span>
+                                        </a>
+                                    </li>
+                                    <li class="active"><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li class="truncate"><span>...</span></li>
+                                    <li><a href="#">12</a></li>
+                                    <li>
+                                        <a href="#" aria-label="Next">
+                                            <span aria-hidden="true"><i class="fa fa-angle-right"></i></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div><!-- end content_sortPagiBar -->
+                    </div><!-- end blog-posts -->
+                </div><!-- end center_column -->
+                <div id="right_column" class="sidebar col-lg-3 col-md-3">
+                    <div id="blog-search" class="block blog-search">
+                        <h4 class="title_block">Ətraflı axtar</h4>
+                        <div class="block_content">
+                            <form id="blogsearch" action="#">
+                                <div class="input-group">
+                                    <input class="search_query form-control" type="text" id="search_query_blog" name="search_query" placeholder="Search" value="" autocomplete="off">
+                                    <div class="input-group-btn">
+                                        <button type="submit" name="submit_search" class="btn button"><i class="fa fa-search"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div><!-- end blog-search -->
+                    <div id="categories_blog_menu" class="block blog-menu">
+                        <h4 class="title_block">Categories</h4>
+                        <div class="block_content">
+                            <ul class="list-block">
+                                <li>
+                                    <a href="#" title="Nullam ullamcorper">
+                                        Nullam ullamcorper
+                                        <span class="count">(15)</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="Turpis at eleifend">
+                                        Turpis at eleifend
+                                        <span class="count">(15)</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="Morbi condimentum">
+                                        Morbi condimentum
+                                        <span class="count">(15)</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="Urna pretium">
+                                        Urna pretium
+                                        <span class="count">(15)</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="Ipsum cursus">
+                                        Ipsum cursus
+                                        <span class="count">(15)</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="Consectetur adipiscing">
+                                        Consectetur adipiscing
+                                        <span class="count">(15)</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" title="Excepteur sint occaecat">
+                                        Excepteur sint occaecat
+                                        <span class="count">(15)</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div><!-- end categories_blog_menu -->
+                    <div id="recent-posts" class="block recent-posts">
+                        <h4 class="title_block">Recent posts</h4>
+                        <div class="block_content">
+                            <ul class="posts-list">
+                            @foreach ($post as $elements)
+                                
+                                <li>
+                                    <div class="media">
+                                        <div class="post-image pull-left">
+                                            <a href=""blogumuz/".$elements->id">
+                                                <img class="img-responsive" src="elements->posts_img_link" alt="" width="90" height="54">
+                                            </a>
+                                        </div>
+                                        <div class="post-info media-body">
+                                            <h5><a href=" 'blogumuz/'.$elements->id" title="elements->title"> elements->title</a></h5>
+                                            <div class="post-meta">
+														<span class="post-date">
+															<i class="zmdi zmdi-calendar"></i> elements->created_at
+														</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                
+                            @endforeach
+                            </ul>
+                        </div>
+                    </div><!-- end recent-posts -->
+                    <div id="block-tag" class="block block-tag">
+                        <h4 class="title_block">Popular tags</h4>
+                        <div class="block_content">
+                            <ul>
+                                <li><a href="#" title="Flower leis">Flower leis</a></li>
+                                <li><a href="#" title="Graduation">Graduation</a></li>
+                                <li><a href="#" title="Lei">Lei</a></li>
+                                <li><a href="#" title="Leis">Leis</a></li>
+                                <li><a href="#" title="Meagan bowman">Meagan bowman</a></li>
+                                <li><a href="#" title="Shark tank">Shark tank</a></li>
+                                <li><a href="#" title="Wood flower leis">Wood flower leis</a></li>
+                                <li><a href="#" title="Wood flowers">Wood flowers</a></li>
+                                <li><a href="#" title="Wedding">Wedding</a></li>
+                                <li><a href="#" title="Loose flowers">Loose flowers</a></li>
+                            </ul>
+                        </div>
+                    </div><!-- end block-tag -->
+                </div><!-- end right_column -->
+            </div><!-- end row -->
+        </div> <!-- end container -->
+    </div><!--end columns-->
+
+
+<!-- Vendor JS -->
+<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'vendor/owl.carousel/owl.carousel.min.js' %}"></script>
+<script src="{% static 'vendor/magnific-popup/jquery.magnific-popup.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+
+<script src="{% static 'vendor/nivo-slider/js/jquery.nivo.slider.js' %}"></script>
+
+<script src="{%  static 'vendor/slider-range/js/tmpl.js') }}"></script>
+<script src="{% static 'vendor/slider-range/js/jquery.dependClass-0.1.js' %}"></script>
+<script src="{% static 'vendor/slider-range/js/draggable-0.1.js' %}"></script>
+<script src="{% static 'vendor/slider-range/js/jquery.slider.js' %}"></script>
+
+<script src="{% static 'vendor/jquery.elevatezoom/jquery.elevatezoom.js' %}"></script>
+
+<!-- Template Base, Components and Settings -->
+<script src="{% static 'js/theme.js' }"></script>
+
+{% endblock %}
+
+
+
